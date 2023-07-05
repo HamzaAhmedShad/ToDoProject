@@ -242,7 +242,6 @@
 				1AAB873239C9381580F3D150 /* Pods-ToDoProjectTests.debug.xcconfig */,
 				AAD709A61A293C8492F77AF3 /* Pods-ToDoProjectTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 class LogInViewController: UIViewController {
     
     @IBOutlet weak var signUpBtn: UIButton!
@@ -18,13 +19,16 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var UserPassword: UITextField!
     
+    @IBOutlet weak var ShowPasswordBtn: UIButton!
     
+    @IBOutlet weak var GLogInBtn: GIDSignInButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //        self.navigationItem.setHidesBackButton(true, animated:true)
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func signUpBtnPressed(_ sender: UIButton) {
@@ -40,6 +44,17 @@ class LogInViewController: UIViewController {
         
         login(with: email, password: password)
     }
+    
+    
+    @IBAction func ShowPasswordBtnPressed(_ sender: UIButton) {
+        UserPassword.isSecureTextEntry.toggle()
+        
+        // Update button image based on password visibility
+        let imageName = UserPassword.isSecureTextEntry ? "eye.slash" : "eye"
+        let image = UIImage(systemName: imageName)
+        ShowPasswordBtn.setImage(image, for: .normal)
+    }
+    
     
     func login(with email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
@@ -58,3 +73,4 @@ class LogInViewController: UIViewController {
         self.navigationController?.pushViewController(vc1, animated: true)
     }
 }
+

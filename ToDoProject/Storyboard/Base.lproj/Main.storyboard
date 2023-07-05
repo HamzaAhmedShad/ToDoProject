@@ -200,6 +200,9 @@ Cg
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title=""/>
+                                        <connections>
+                                            <action selector="ShowPasswordBtnPressed:" destination="ewe-1z-j1b" eventType="touchUpInside" id="6ot-8J-Uf7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.26844969390000001" green="0.35415893790000003" blue="0.39139875769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -335,7 +338,9 @@ Cg
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="GLogInBtn" destination="T9c-4Q-g7g" id="HYV-Bw-Hbu"/>
                         <outlet property="LogInBtn" destination="t2w-xO-BbM" id="FhB-qP-lZA"/>
+                        <outlet property="ShowPasswordBtn" destination="OW5-Oj-F56" id="kwZ-Sk-Gux"/>
                         <outlet property="UserEmail" destination="zWZ-kj-WGr" id="XRb-xO-lLt"/>
                         <outlet property="UserPassword" destination="CKo-Yj-sqy" id="H2l-IK-S6N"/>
                         <outlet property="signUpBtn" destination="hel-HE-Mhe" id="KSg-bC-crW"/>
@@ -755,6 +760,9 @@ Cg
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title=""/>
+                                        <connections>
+                                            <action selector="ShowPasswordBtnPressed:" destination="NKI-oh-o3A" eventType="touchUpInside" id="fIr-7C-b7r"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.26844969390000001" green="0.35415893790000003" blue="0.39139875769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -784,9 +792,14 @@ Cg
                                     <constraint firstAttribute="height" constant="34.333333333333371" id="UeG-EP-ibo"/>
                                     <constraint firstAttribute="width" constant="49" id="h8r-rR-LR0"/>
                                 </constraints>
-                                <color key="tintColor" red="0.99661833050000004" green="0.82768183949999996" blue="0.41584056619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title="">
+                                    <color key="baseForegroundColor" red="0.99661833050000004" green="0.82768183949999996" blue="0.41584056619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="TCBtnPressed:" destination="NKI-oh-o3A" eventType="touchUpInside" id="KGU-bg-5gv"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="9yX-Zg-gdP" userLabel="T&amp;c">
                                 <rect key="frame" x="65" y="527.66666666666663" width="263.33333333333331" height="34.333333333333371"/>
@@ -935,7 +948,9 @@ Cg
                     </view>
                     <connections>
                         <outlet property="RegLoginBtn" destination="aT3-ry-6HD" id="a6r-Iy-XEX"/>
+                        <outlet property="ShowPasswordBtn" destination="Rgp-Iz-00z" id="W81-xM-7Rq"/>
                         <outlet property="SignUpBtn" destination="cOn-6L-4Yk" id="I6W-ur-k2y"/>
+                        <outlet property="TCBtn" destination="bJP-9j-NQN" id="ehJ-lo-5Ku"/>
                         <outlet property="UserEmail" destination="IFW-Jk-zEE" id="YF4-DG-H4j"/>
                         <outlet property="UserName" destination="f4C-RV-kQ7" id="OwN-Gf-q0G"/>
                         <outlet property="UserPassword" destination="CXt-VZ-Uqk" id="LCN-mV-JDX"/>
@@ -963,6 +978,9 @@ Cg
                                 <buttonConfiguration key="configuration" style="filled" title="Logout" cornerStyle="capsule">
                                     <color key="baseBackgroundColor" red="0.76121386049999995" green="0.1518923194" blue="0.2527017057" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="LogoutBtnPressed:" destination="mwS-xK-Ez3" eventType="touchUpInside" id="2yN-vW-xIw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GGI-Bg-G9t"/>
@@ -974,6 +992,9 @@ Cg
                             <constraint firstItem="rIO-QW-Xow" firstAttribute="centerX" secondItem="4uh-4F-IEO" secondAttribute="centerX" id="jdB-XV-KXj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="LogoutBtn" destination="rIO-QW-Xow" id="Kdt-LB-uIM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5a-sI-LoS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

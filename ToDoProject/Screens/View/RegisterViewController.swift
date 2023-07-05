@@ -19,7 +19,9 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var SignUpBtn: UIButton!
     
+    @IBOutlet weak var ShowPasswordBtn: UIButton!
     
+    @IBOutlet weak var TCBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,4 +49,21 @@ class RegisterViewController: UIViewController {
         }
         navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func ShowPasswordBtnPressed(_ sender: UIButton) {
+        UserPassword.isSecureTextEntry.toggle()
+        
+        // Update button image based on password visibility
+        let imageName = UserPassword.isSecureTextEntry ? "eye.slash" : "eye"
+        let image = UIImage(systemName: imageName)
+        ShowPasswordBtn.setImage(image, for: .normal)
+    }
+    
+    @IBAction func TCBtnPressed(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        let imageName = sender.isSelected ? "checkmark.square.fill" : "square"
+            let image = UIImage(systemName: imageName)
+            sender.setImage(image, for: .normal)
+    }
+    
 }
