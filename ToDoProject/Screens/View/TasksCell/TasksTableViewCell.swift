@@ -8,7 +8,7 @@
 import UIKit
 
 class TasksTableViewCell: UITableViewCell {
-    
+    var task: Task?
     @IBOutlet weak var checkBtn: UIButton!
     
     @IBOutlet weak var taskText: UILabel!
@@ -23,5 +23,7 @@ class TasksTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
+    func taskConfig(with task: Task) {
+        taskText.text = task.title
+    }
 }

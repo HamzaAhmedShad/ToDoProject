@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
 import GoogleSignIn
 class LogInViewController: UIViewController {
     
@@ -74,3 +74,6 @@ class LogInViewController: UIViewController {
     }
 }
 
+extension LogInViewController{
+    
+}

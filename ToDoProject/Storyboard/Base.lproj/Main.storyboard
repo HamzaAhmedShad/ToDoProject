@@ -525,6 +525,7 @@ Cg
                                     <color key="baseBackgroundColor" red="0.99661833050000004" green="0.82768183949999996" blue="0.41584056619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="AddTaskBtnPressed:" destination="6hh-3I-nPe" eventType="touchUpInside" id="gVe-LW-flQ"/>
                                     <action selector="letsStrtBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Ru-yk-QFb"/>
                                     <action selector="logInBtnPressed:" destination="ewe-1z-j1b" eventType="touchUpInside" id="gHe-bg-BQR"/>
                                 </connections>
@@ -600,6 +601,11 @@ Cg
                             <constraint firstItem="qD7-U7-RK6" firstAttribute="centerX" secondItem="2fJ-Nv-No3" secondAttribute="centerX" id="zmX-7p-iks"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AddTaskBtn" destination="qD7-U7-RK6" id="Izk-z0-CMg"/>
+                        <outlet property="TaskDetailsField" destination="ilQ-QD-hWY" id="X6b-TB-p0v"/>
+                        <outlet property="TaskTitleField" destination="5MX-c9-LvV" id="8H7-fy-jkz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzu-fc-iRW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

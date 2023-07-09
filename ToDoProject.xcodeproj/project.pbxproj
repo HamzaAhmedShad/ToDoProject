@@ -25,6 +25,8 @@
 		35C7713B2A53F4C800C3A8A5 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C7713A2A53F4C800C3A8A5 /* LogoutViewController.swift */; };
 		35C7713D2A5400B400C3A8A5 /* TasksDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C7713C2A5400B400C3A8A5 /* TasksDetailsViewController.swift */; };
 		35C7713F2A54144400C3A8A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35C7713E2A54144400C3A8A5 /* GoogleService-Info.plist */; };
+		35E9F7DA2A5ABD2E00FABF9A /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9F7D92A5ABD2E00FABF9A /* TasksViewModel.swift */; };
+		35E9F7DC2A5AC03000FABF9A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9F7DB2A5AC03000FABF9A /* TaskModel.swift */; };
 		745491D9118391924D69C24F /* Pods_ToDoProject_ToDoProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF6FC22BF84E8496DE7758D /* Pods_ToDoProject_ToDoProjectUITests.framework */; };
 		E080B7E3BF2CA41759566F23 /* Pods_ToDoProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D75F4532C19247FA50F543 /* Pods_ToDoProjectTests.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,8 @@
 		35C7713A2A53F4C800C3A8A5 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 		35C7713C2A5400B400C3A8A5 /* TasksDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksDetailsViewController.swift; sourceTree = "<group>"; };
 		35C7713E2A54144400C3A8A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		35E9F7D92A5ABD2E00FABF9A /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		35E9F7DB2A5AC03000FABF9A /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		5949FCA629AE87451161CC35 /* Pods-ToDoProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoProject.release.xcconfig"; path = "Target Support Files/Pods-ToDoProject/Pods-ToDoProject.release.xcconfig"; sourceTree = "<group>"; };
 		65213A055D3E4055F84EA2FD /* Pods-ToDoProject-ToDoProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoProject-ToDoProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-ToDoProject-ToDoProjectUITests/Pods-ToDoProject-ToDoProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78D75F4532C19247FA50F543 /* Pods_ToDoProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +210,7 @@
 		35B54D662A41D1210075AB3F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				35E9F7DB2A5AC03000FABF9A /* TaskModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 		35B54D682A41D12E0075AB3F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				35E9F7D92A5ABD2E00FABF9A /* TasksViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -500,11 +506,13 @@
 				35B54D342A41C4930075AB3F /* ViewController.swift in Sources */,
 				35B54D302A41C4930075AB3F /* AppDelegate.swift in Sources */,
 				359BEBE12A431EDE00E16F02 /* TasksViewController.swift in Sources */,
+				35E9F7DC2A5AC03000FABF9A /* TaskModel.swift in Sources */,
 				35B54D6A2A41D15F0075AB3F /* LogInViewController.swift in Sources */,
 				359BEBEA2A44600300E16F02 /* AddNewTaskViewController.swift in Sources */,
 				35C7713B2A53F4C800C3A8A5 /* LogoutViewController.swift in Sources */,
 				35C7713D2A5400B400C3A8A5 /* TasksDetailsViewController.swift in Sources */,
 				359BEBDF2A4308D700E16F02 /* RegisterViewController.swift in Sources */,
+				35E9F7DA2A5ABD2E00FABF9A /* TasksViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
