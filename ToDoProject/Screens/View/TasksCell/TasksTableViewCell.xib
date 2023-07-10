@@ -86,6 +86,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="checkBtn" destination="GIH-Ca-F1F" id="OjT-tn-Qbe"/>
+                <outlet property="taskText" destination="Scy-kn-87V" id="eWy-VG-BXh"/>
             </connections>
             <point key="canvasLocation" x="161.83206106870227" y="-3.8732394366197185"/>
         </tableViewCell>

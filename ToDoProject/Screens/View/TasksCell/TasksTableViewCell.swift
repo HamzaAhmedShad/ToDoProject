@@ -12,10 +12,15 @@ class TasksTableViewCell: UITableViewCell {
     @IBOutlet weak var checkBtn: UIButton!
     
     @IBOutlet weak var taskText: UILabel!
+    
+    
+    
+    func taskConfig(with task: Task) {
+        taskText.text = task.title
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,7 +28,5 @@ class TasksTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    func taskConfig(with task: Task) {
-        taskText.text = task.title
-    }
+    
 }

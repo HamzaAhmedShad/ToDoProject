@@ -4,8 +4,6 @@
 //
 //  Created by BS1101 on 9/7/23.
 //
-
-import Foundation
 import Firebase
 import FirebaseFirestore
 
@@ -24,10 +22,13 @@ class TasksViewModel {
         
         let tasksCollectionRef = db.collection("users").document(userID).collection("tasks")
         
-        tasksCollectionRef.getDocuments { (querySnapshot, error) in
+        tasksCollectionRef.getDocuments { [weak self] (querySnapshot, error) in
             if let error = error {
                 completion(.failure(error))
                 return
+            }
+            for document in querySnapshot!.documents {
+                print("\(document.documentID) => \(document.data())")
             }
             
             guard let documents = querySnapshot?.documents else {
@@ -35,9 +36,17 @@ class TasksViewModel {
                 return
             }
             
-            self.tasks = documents.compactMap { Task(document: $0) }
-            
+            self?.tasks = documents.compactMap { Task(document: $0) }
+            if self?.tasks.isEmpty == true {
+                // Tasks array is empty
+                print("No tasks found")
+            } else {
+                // Tasks array has data
+                print("Tasks found")
+            }
             completion(.success(()))
         }
     }
+    
+    
 }

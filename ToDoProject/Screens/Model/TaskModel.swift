@@ -16,7 +16,7 @@ struct Task {
         guard let data = document.data(),
               let id = data["id"] as? String,
               let title = data["title"] as? String,
-              let description = data["description"] as? String else {
+              let description = data["details"] as? String else {
             return nil
         }
         

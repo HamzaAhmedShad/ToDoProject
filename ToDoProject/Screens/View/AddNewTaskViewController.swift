@@ -25,11 +25,11 @@ class AddNewTaskViewController: UIViewController {
     
     @IBAction func AddTaskBtnPressed(_ sender: UIButton) {
         guard let taskTitle = TaskTitleField.text, !taskTitle.isEmpty,
-              let taskDetails = TaskDetailsField.text, !taskDetails.isEmpty else {
+              let taskDescription = TaskDetailsField.text, !taskDescription.isEmpty else {
             print("Task title or details empty")
             return
         }
-        saveTaskToFirestore(taskTitle: taskTitle, taskDetails: taskDetails)
+        saveTaskToFirestore(taskTitle: taskTitle, taskDetails: taskDescription)
         navigationController?.popViewController(animated: true)
     }
     
@@ -53,6 +53,7 @@ class AddNewTaskViewController: UIViewController {
                 print("Error adding task: \(error.localizedDescription)")
             } else {
                 print("Task added successfully!")
+//                NotificationCenter.default.post(name: NSNotification.Name("TaskAddedNotification"), object: nil)
             }
         }
     }

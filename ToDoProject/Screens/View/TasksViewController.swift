@@ -24,6 +24,8 @@ class TasksViewController: UIViewController {
         //                navigationController?.setNavigationBarHidden(true, animated: true)
         TasksTableView.register(UINib(nibName: "TasksTableViewCell", bundle: .main), forCellReuseIdentifier: "TasksTableViewCell")
         TasksTableView.rowHeight = 80
+        TasksTableView.dataSource = self
+        TasksTableView.delegate = self
         fetchTasks()
     }
     
@@ -56,15 +58,15 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "TasksTableViewCell", for: indexPath) as? TasksTableViewCell{
-            let task = tasksViewModel.tasks[indexPath.row]
-            cell.taskConfig(with: task)
-            return cell
-        }
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TasksTableViewCell", for: indexPath) as! TasksTableViewCell
+        print("tableView(_:cellForRowAt:) called")
+        let task = tasksViewModel.tasks[indexPath.row]
+        cell.taskConfig(with: task)
+        
+        return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         TasksTableView.deselectRow(at: indexPath, animated: false)
-
+        
     }
 }
