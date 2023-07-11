@@ -21,14 +21,18 @@ class TasksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //                navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
         TasksTableView.register(UINib(nibName: "TasksTableViewCell", bundle: .main), forCellReuseIdentifier: "TasksTableViewCell")
         TasksTableView.rowHeight = 80
         TasksTableView.dataSource = self
         TasksTableView.delegate = self
         fetchTasks()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTasks), name: NSNotification.Name("TaskAddedNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTasks), name: NSNotification.Name("TaskDeletedNotification"), object: nil)
     }
-    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("TaskAddedNotification"), object: nil)
+    }
     func fetchTasks(){
         tasksViewModel.fetchTasks { [weak self] result in
             switch result {
@@ -67,6 +71,20 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         TasksTableView.deselectRow(at: indexPath, animated: false)
-        
+        let task = tasksViewModel.tasks[indexPath.row]
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TasksDetailsViewController") as? TasksDetailsViewController {
+                vc.tasks = task
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+    }
+    @objc func reloadTasks() {
+        tasksViewModel.fetchTasks { [weak self] result in
+            switch result {
+            case .success:
+                self?.TasksTableView.reloadData()
+            case .failure(let error):
+                print("Error fetching tasks: \(error.localizedDescription)")
+            }
+        }
     }
 }

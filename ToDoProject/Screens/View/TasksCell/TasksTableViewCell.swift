@@ -29,4 +29,12 @@ class TasksTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func checkBtnPressed(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        
+        // Update button image based on the selected state
+        let imageName = sender.isSelected ? "checkmark.circle" : "circle"
+        let image = UIImage(systemName: imageName)
+        checkBtn.setImage(image, for: .normal)
+    }
 }

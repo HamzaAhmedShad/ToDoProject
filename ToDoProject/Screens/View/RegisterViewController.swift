@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 class RegisterViewController: UIViewController {
     
     @IBOutlet weak var RegLoginBtn: UIButton!
@@ -25,7 +26,7 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        self.navigationItem.setHidesBackButton(true, animated:true)
+        self.navigationItem.setHidesBackButton(true, animated:true)
         // Do any additional setup after loading the view.
     }
     @IBAction func RegLoginPressed(_ sender: UIButton) {
@@ -45,6 +46,24 @@ class RegisterViewController: UIViewController {
                 print("Registration error: \(error.localizedDescription)")
                 return
             }
+            guard let userID = authResult?.user.uid else {
+                print("User ID not found")
+                return
+            }
+            let db = Firestore.firestore()
+            let userDocumentRef = db.collection("users").document(userID)
+            
+            userDocumentRef.setData([
+                "name": name,
+                "email": email,
+                "id": userID
+            ]) { error in
+                if let error = error {
+                    print("Error adding user document: \(error.localizedDescription)")
+                } else {
+                    print("User document added successfully!")
+                }
+            }
             print("User Registered Successfully!")
         }
         navigationController?.popViewController(animated: true)
@@ -62,8 +81,8 @@ class RegisterViewController: UIViewController {
     @IBAction func TCBtnPressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         let imageName = sender.isSelected ? "checkmark.square.fill" : "square"
-            let image = UIImage(systemName: imageName)
-            sender.setImage(image, for: .normal)
+        let image = UIImage(systemName: imageName)
+        sender.setImage(image, for: .normal)
     }
     
 }

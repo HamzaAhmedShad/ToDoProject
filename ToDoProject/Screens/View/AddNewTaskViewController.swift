@@ -16,12 +16,17 @@ class AddNewTaskViewController: UIViewController {
     
     @IBOutlet weak var AddTaskBtn: UIButton!
     
+    @IBOutlet weak var BackBtnNew: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.setHidesBackButton(true, animated:true)
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func BackBtnNewPressed(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func AddTaskBtnPressed(_ sender: UIButton) {
         guard let taskTitle = TaskTitleField.text, !taskTitle.isEmpty,
@@ -53,7 +58,7 @@ class AddNewTaskViewController: UIViewController {
                 print("Error adding task: \(error.localizedDescription)")
             } else {
                 print("Task added successfully!")
-//                NotificationCenter.default.post(name: NSNotification.Name("TaskAddedNotification"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name("TaskAddedNotification"), object: nil)
             }
         }
     }

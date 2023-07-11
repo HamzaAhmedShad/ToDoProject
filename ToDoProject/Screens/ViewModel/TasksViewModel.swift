@@ -46,7 +46,31 @@ class TasksViewModel {
             }
             completion(.success(()))
         }
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("TaskAddedNotification"), object: nil, queue: .main) { [weak self] _ in
+            self?.fetchTasks { result in
+                // Handle the result, and trigger completion if needed
+            }
+        }
     }
-    
-    
+    func deleteTask(taskID: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let userID = Auth.auth().currentUser?.uid else {
+            let error = NSError(domain: "TasksViewModel", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not authenticated"])
+            completion(.failure(error))
+            return
+        }
+        
+        let tasksCollectionRef = db.collection("users").document(userID).collection("tasks")
+        let taskDocumentRef = tasksCollectionRef.document(taskID)
+        
+        taskDocumentRef.delete { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("TaskAddedNotification"), object: nil)
+    }
 }
